@@ -1,1 +1,1 @@
-mongodb+srv://dbAdmin:jackson123@execute-vxpji.mongodb.net/test
+mongodb+srv://dbUser:user123@execute-vxpji.mongodb.net/test
