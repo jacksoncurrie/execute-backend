@@ -1,0 +1,31 @@
+{
+  "name": "execute-backend",
+  "version": "1.0.0",
+  "description": "The backend for the Execute project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacksoncurrie/execute-backend.git"
+  },
+  "keywords": [
+    "Execute",
+    "Backend",
+    "Express",
+    "GraphQL"
+  ],
+  "author": "Jackson Currie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacksoncurrie/execute-backend/issues"
+  },
+  "homepage": "https://github.com/jacksoncurrie/execute-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.4.2",
+    "mongoose": "^5.6.9"
+  }
+}
