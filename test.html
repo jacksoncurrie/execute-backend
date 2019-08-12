@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test API</title>
+</head>
+<body>
+    <script>
+        const query = `
+            query Query {
+                users {
+                    username
+                    password
+                }
+            }
+        `;
+
+        const mutation = `
+            mutation Mutation {
+                createUser(username: "test4", password: "tes1") {
+                    username
+                }
+            }
+        `;
+
+        const url = "http://localhost:3000/graphql";
+        const opts = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query })
+        };
+
+        fetch(url, opts)
+            .then(res => res.json())
+            .then(console.log)
+            .catch(console.error);
+    </script>
+</body>
+</html>

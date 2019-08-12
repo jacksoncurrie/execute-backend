@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 var graphqlHTTP = require('express-graphql');
 var { GraphQLSchema, GraphQLNonNull, GraphQLInt, GraphQLList, GraphQLString, GraphQLObjectType } = require('graphql');
 
@@ -56,6 +57,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, function(_err, db){
     });
 
     var app = express();
+    app.use(cors());
     app.use('/graphql', graphqlHTTP({
         schema: schema,
         graphiql: true,
