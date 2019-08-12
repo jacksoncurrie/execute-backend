@@ -51,4 +51,40 @@ The JSON structure of the collection for a single entry is as follows:
 
 The user for the database is **Username:** *dbUser* **Password:** *user123*
 
-The connection string for this user is: `mongodb+srv://dbUser:user123@execute-vxpji.mongodb.net/test`
+The connection string for this user is: `mongodb+srv://dbUser:user123@execute-vxpji.mongodb.net`
+
+The connection string for a local server is: `mongodb://localhost:27017`
+
+### GraphQL API
+
+This server is hosting a GraphQL API, with GraphiQL enabled at `http://localhost:3000/graphql`
+
+To query this API you must have some understanding of [GraphQL](https://www.graphql.com/).
+
+You must send a POST method with the following JSON like GraphQL query or mutation, or you can go to the GraphiQL link above to test out your queries or mutations.
+
+#### Queries & Mutations
+
+Use the structure of the collection above to return the data you want, if it is available.
+
+##### Get all user's data:
+```
+query Query {
+    user(username: "") {
+        username
+        password
+        ...
+    }
+}
+```
+
+##### Create new user:
+```
+mutation Mutation {
+    createUser(username: "", password: "") {
+        username
+        password
+        ...
+    }
+}
+```

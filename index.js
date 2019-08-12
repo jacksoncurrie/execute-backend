@@ -4,7 +4,8 @@ var graphqlHTTP = require('express-graphql');
 var { GraphQLSchema, GraphQLNonNull, GraphQLInt, GraphQLList, GraphQLString, GraphQLObjectType } = require('graphql');
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017";
+//var url = "mongodb://localhost:27017";
+var url = "mongodb+srv://dbUser:user123@execute-vxpji.mongodb.net";
 
 MongoClient.connect(url, {useNewUrlParser: true}, function(_err, db){
     var dbo = db.db("execute");
@@ -22,12 +23,6 @@ MongoClient.connect(url, {useNewUrlParser: true}, function(_err, db){
         query: new GraphQLObjectType({
             name: 'Query',
             fields: {
-                users: {
-                    type: new GraphQLList(userType),
-                    resolve: async () => {
-                        return await users.find().toArray();
-                    }
-                },
                 user: {
                     type: userType,
                     args: {
