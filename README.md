@@ -69,7 +69,7 @@ Use the structure of the collection above to return the data you want, if it is 
 
 ##### Get all user's data:
 ```
-query Query {
+query GetUsersData {
     user(username: "") {
         username
         password
@@ -80,7 +80,7 @@ query Query {
 
 ##### Create new user:
 ```
-mutation Mutation {
+mutation AddNewUser {
     createUser(username: "", password: "") {
         username
         password

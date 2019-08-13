@@ -2,9 +2,9 @@
   "name": "execute-backend",
   "version": "1.0.0",
   "description": "The backend for the Execute project",
-  "main": "index.js",
+  "main": "app/app.js",
   "scripts": {
-    "start": "node ."
+    "start": "node app/app.js"
   },
   "repository": {
     "type": "git",

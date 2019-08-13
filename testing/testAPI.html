@@ -9,24 +9,42 @@
 <body>
     <script>
         const query = `
-            query Query {
-                users {
+            query GetUsersData {
+                user(username: "jackson") {
+                    username
+                    password
+                    calendarItems {
+                        title
+                        startTime
+                        endTime
+                    }
+                    scheduleItems {
+                        title
+                        category
+                        startTime
+                        endTime
+                    }
+                    tasks {
+                        title
+                        priority
+                        estimatedTime
+                        startTime
+                    }
+                }
+            }
+        `;
+
+        const mutation = `
+            mutation AddNewUser {
+                createUser(username: "test4", password: "tes1") {
                     username
                     password
                 }
             }
         `;
 
-        const mutation = `
-            mutation Mutation {
-                createUser(username: "test4", password: "tes1") {
-                    username
-                }
-            }
-        `;
-
         const url = "http://localhost:3000/graphql";
-        
+
         const opts = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
