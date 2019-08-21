@@ -8,38 +8,110 @@
 </head>
 <body>
     <script>
-        const query = `
-            query GetUsersData {
-                user(username: "jackson") {
-                    username
-                    password
+        const CreateUser = `
+            mutation CreateUser {
+                createUser(username: "sam", password: "sam")
+            }
+        `;
+
+        const GetUserData = `
+            query GetUserData {
+                getUserData(username: "sam", password: "sam") {
+                    username,
+                    password,
                     calendarItems {
-                        title
-                        startTime
+                        calendarItemID,
+                        title,
+                        startTime,
                         endTime
-                    }
+                    },
                     scheduleItems {
-                        title
-                        category
-                        startTime
+                        scheduleItemID,
+                        title,
+                        category,
+                        startTime,
                         endTime
-                    }
+                    },
                     tasks {
-                        title
-                        priority
-                        estimatedTime
+                        taskID,
+                        title,
+                        priority,
+                        estimatedTime,
                         startTime
                     }
                 }
             }
         `;
 
-        const mutation = `
-            mutation AddNewUser {
-                createUser(username: "test", password: "password") {
-                    username
-                    password
-                }
+        const AddItems = `
+            mutation AddItems {
+                addItem(
+                    username: "sam", 
+                    password: "sam",
+                    calendarItem: {
+                        title: "test",
+                        startTime: "test",
+                        endTime: "test"
+                    },
+                    scheduleItem: {
+                        title: "test",
+                        category: 0,
+                        startTime: 0,
+                        endTime: 0
+                    }
+                    task: {
+                        title: "test",
+                        priority: 0,
+                        estimatedTime: 0
+                    }
+                )
+            }
+        `;
+
+        const UpdateItems = `
+            mutation UpdateItems {
+                updateItem(
+                    username: "sam",
+                    password: "sam",
+                    calendarItem: {
+                        calendarItemID: "5d5d15576eb4a70ed8482e67",
+                        title: "test2",
+                        startTime: "test2",
+                        endTime: "test2"
+                    },
+                    scheduleItem: {
+                        scheduleItemID: "5d5d15576eb4a70ed8482e68",
+                        title: "test2",
+                        category: 1,
+                        startTime: 1,
+                        endTime: 1
+                    },
+                    task: {
+                        taskID: "5d5d15576eb4a70ed8482e69",
+                        title: "test2",
+                        priority: 1,
+                        estimatedTime: 1,
+                        startTime: "test2"
+                    }
+                )
+            }
+        `;
+
+        const RemoveItems = `
+            mutation RemoveItems {
+                removeItem(
+                    username: "sam",
+                    password: "sam",
+                    calendarItem: {
+                        calendarItemID: "5d5d15576eb4a70ed8482e67"
+                    },
+                    scheduleItem: {
+                        scheduleItemID: "5d5d15576eb4a70ed8482e68"
+                    },
+                    task: {
+                        taskID: "5d5d15576eb4a70ed8482e69"
+                    }
+                )
             }
         `;
 
@@ -48,7 +120,7 @@
         const opts = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ mutation })
+            body: JSON.stringify({ query: GetUserData })
         };
 
         fetch(url, opts)
