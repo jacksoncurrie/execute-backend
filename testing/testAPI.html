@@ -36,7 +36,7 @@
 
         const mutation = `
             mutation AddNewUser {
-                createUser(username: "test4", password: "tes1") {
+                createUser(username: "test", password: "password") {
                     username
                     password
                 }
@@ -48,7 +48,7 @@
         const opts = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query })
+            body: JSON.stringify({ mutation })
         };
 
         fetch(url, opts)
