@@ -82,7 +82,6 @@ Username and password are required to get any results back, and you can get what
 query GetUsersData {
     user(username: "[username]", password: "[password]") {
         username
-        password
         calendarItems {
             calendarItemID
             title
