@@ -36,7 +36,6 @@ module.exports = new GraphQLObjectType({
     name: 'user',
     fields: () => ({
         username: { type: GraphQLString },
-        password: { type: GraphQLString },
         calendarItems: { type: new GraphQLList(calendarItemsType) },
         scheduleItems: { type: new GraphQLList(scheduleItemsType) },
         tasks: { type: new GraphQLList(tasksType) }
