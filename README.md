@@ -2,7 +2,17 @@
 
 The backend repository for the Execute project.
 
-**Version:** 1.0
+**Current Version:** 1.1
+
+### Update Notes
+
+#### Version 1.1
+
+* Removed password from user output type.
+
+#### Version 1.0
+
+* First completed version of the project.
 
 ## Documentation
 
