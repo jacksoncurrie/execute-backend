@@ -15,7 +15,7 @@ This contains the regression testing for the Execute Backend project
 1. Logging in with *User* account should have access to read and write to the database
 2. Logging in with incorrect user details should not give any access to the database.
 
-#### Test Results - Version 1.1
+#### Test Results - Version 1.2
 
 1. Logging in with *User* account hase access to read and write to the database.
 ![Database Login Test](images/databaseLogin.png)
@@ -32,7 +32,7 @@ This contains the regression testing for the Execute Backend project
 2. The clients application should be able to POST GraphQL queries to the endpoint and get back results.
 3. The clients application should be able to POST GraphQL mutations to the endpoint and edit or add new data.
 
-#### Test Results - Version 1.1
+#### Test Results - Version 1.2
 
 1. The `/graphql` endpoint has access to GraphiQL and its documentation.
 ![Database Login Result](images/graphiQLSuccess.png)

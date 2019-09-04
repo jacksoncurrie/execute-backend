@@ -2,9 +2,14 @@
 
 The backend repository for the Execute project.
 
-**Current Version:** 1.1
+**Current Version:** 1.2
 
 ### Update Notes
+
+#### Version 1.2
+
+* Changed date-time formats to `yyyy-MM-dd[T]HH:mm` e.g. `"2019-01-01T19:00"`
+* Changed Schedule date-time format to `d[T]HH:mm` (d is the week day integer, e.g. 0 = monday) e.g. `"1T21:00"`
 
 #### Version 1.1
 
@@ -34,8 +39,8 @@ The JSON structure of the collection for a single entry is as follows:
         { 
             calendarItemID: ObjectID,
             title: String, 
-            startTime: Date,
-            endTime: Date 
+            startTime: DateTime (usual date and time separted by 'T'),
+            endTime: DateTime (usual date and time separted by 'T')
         },
         ...
     ],
@@ -43,9 +48,9 @@ The JSON structure of the collection for a single entry is as follows:
         { 
             scheduleItemID: ObjectID,
             title: String,
-            category: Int32 (the category code),
-            startTime: Int32 (the time in minutes from 12:00am),
-            endTime: Int32 (the time in minutes from 12:00am)
+            category: Int32 (the integer for the category code),
+            startTime: DayTime (interger for the day and usual time sparated by 'T'),
+            endTime: DayTime (interger for the day and usual time sparated by 'T')
         }, 
         ...
     ], 
@@ -53,9 +58,9 @@ The JSON structure of the collection for a single entry is as follows:
         { 
             taskID: ObjectID,
             title: String,
-            priority: Int32 (the priority code),
+            priority: Int32 (the integer for the priority code),
             estimatedTime: Int32 (the time in minutes),
-            startTime: Date
+            startTime: DateTime (usual date and time separted by 'T')
         },
         ...
     ] 
@@ -148,8 +153,8 @@ mutation AddItems {
         scheduleItem: {
             title: "[title]",
             category: [category],
-            startTime: [startTime],
-            endTime: [endTime]
+            startTime: "[startTime]",
+            endTime: "[endTime]"
         }
         task: {
             title: "[title]",
@@ -179,14 +184,14 @@ mutation UpdateItems {
             scheduleItemID: "[scheduleItemID]",
             title: "[title]",
             category: [category],
-            startTime: [startTime],
-            endTime: [endTime]
+            startTime: "[startTime]",
+            endTime: "[endTime]"
         }
         task: {
             taskID: "[taskID]",
             title: "[title]",
             priority: [priority],
-            estimatedTime: [estimatedTime]
+            estimatedTime: "[estimatedTime]"
         }
     )
 }
