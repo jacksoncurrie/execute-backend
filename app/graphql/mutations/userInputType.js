@@ -16,8 +16,8 @@ const scheduleItemsType = new GraphQLInputObjectType({
         scheduleItemID: { type: GraphQLID },
         title: { type: GraphQLString },
         category: { type: GraphQLInt },
-        startTime: { type: GraphQLInt },
-        endTime: { type: GraphQLInt }
+        startTime: { type: GraphQLString },
+        endTime: { type: GraphQLString }
     })
 });
 
