@@ -2,9 +2,13 @@
 
 The backend repository for the Execute project.
 
-**Current Version:** 1.2
+**Current Version:** 1.3
 
 ### Update Notes
+
+#### Version 1.3
+
+* Added startTime and endTime to getData query so that only data within the week comes back.
 
 #### Version 1.2
 
@@ -85,17 +89,22 @@ You must send a POST method with the following JSON like GraphQL query or mutati
 
 #### Queries
 
-Values inside square brakets are for variables for you to add, e.g. `[username]` could be set to `"jackson"`
+Values inside square brakets are for variables for you to add, e.g. `"[username]"` could be set to `"jackson"`
 
 Refer to the database structure for object types.
 
 ##### Get all user's data:
 
-Username and password are required to get any results back, and you can get what you want by selecting the fields you want to return.
+Username and password are required to get any results back, startTime and endTime are optional and used to get back a certian range of data. You can get what you want by selecting the fields you want to return.
 
 ```
 query GetUsersData {
-    user(username: "[username]", password: "[password]") {
+    user(
+        username: "[username]",
+        password: "[password]",
+        startTime: "[startTime]",
+        endTime: "[endTime]"
+    ) {
         username
         calendarItems {
             calendarItemID
