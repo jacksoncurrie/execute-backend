@@ -7,7 +7,7 @@ const schema = require('./graphql/schema.js');
 const localUrl = "mongodb://localhost:27017";
 const serverUrl = "mongodb+srv://dbUser:user123@execute-vxpji.mongodb.net";
 
-MongoClient.connect(localUrl, { useNewUrlParser: true }, (err, db) => {
+MongoClient.connect(serverUrl, { useNewUrlParser: true }, (err, db) => {
     if (err) throw err;
     global.users = db.db("execute").collection("userData");
     console.log("Connected to database");
@@ -22,4 +22,4 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true,
 }));
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(8080, () => console.log('Server running on port 8080'));

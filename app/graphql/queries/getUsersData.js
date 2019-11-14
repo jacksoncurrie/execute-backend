@@ -17,13 +17,14 @@ module.exports = {
         if (args.startTime && args.endTime) {
             let items = { calendarItems: [], scheduleItems: data.scheduleItems, tasks: [] };
             for (let i of data.calendarItems) {
-                if (i.startTime.split('T')[0] >= args.startTime && i.startTime.split('T')[0] <= args.endTime)
+                if (i.startTime.split('T')[0] >= args.startTime.split("T")[0] && i.startTime.split('T')[0] <= args.endTime.split("T")[0] ||
+                  i.endTime.split('T')[0] >= args.startTime.split("T")[0] && i.endTime.split('T')[0] <= args.endTime.split("T")[0])
                     items.calendarItems.push(i);
             }
             for (let i of data.tasks) {
                 if (!i.startTime)
                     continue;
-                if (i.startTime.split('T')[0] >= args.startTime && i.startTime.split('T')[0] <= args.endTime)
+                if (i.startTime.split('T')[0] >= args.startTime.split("T")[0] && i.startTime.split('T')[0] <= args.endTime.split("T")[0])
                     items.tasks.push(i);
             }
             return items;
