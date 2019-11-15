@@ -2,9 +2,13 @@
 
 The backend repository for the Execute project.
 
-**Current Version:** 1.3
+**Current Version:** 1.3.1
 
 ### Update Notes
+
+#### Version 1.3.1
+
+* Fixed `startTime` and `endTime` for schedule to get all correct times coming through.
 
 #### Version 1.3
 
