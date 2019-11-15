@@ -1,132 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test API</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test API</title>
 </head>
+
 <body>
-    <script>
-        const CreateUser = `
-            mutation CreateUser {
-                createUser(username: "sam", password: "sam")
-            }
-        `;
+  <script>
+    const CreateUser = `
+      mutation CreateUser {
+        createUser(username: "jackson", password: "jackson")
+      }
+    `;
 
-        const GetUserData = `
-            query GetUserData {
-                getUserData(username: "sam", password: "sam") {
-                    username,
-                    password,
-                    calendarItems {
-                        calendarItemID,
-                        title,
-                        startTime,
-                        endTime
-                    },
-                    scheduleItems {
-                        scheduleItemID,
-                        title,
-                        category,
-                        startTime,
-                        endTime
-                    },
-                    tasks {
-                        taskID,
-                        title,
-                        priority,
-                        estimatedTime,
-                        startTime
-                    }
-                }
-            }
-        `;
+    const GetUserData = `
+      query GetUserData {
+        getUserData(username: "jackson", password: "jackson") {
+          username,
+          calendarItems {
+            calendarItemID,
+            title,
+            startTime,
+            endTime
+          },
+          scheduleItems {
+            scheduleItemID,
+            title,
+            category,
+            startTime,
+            endTime
+          },
+          tasks {
+            taskID,
+            title,
+            priority,
+            estimatedTime,
+            startTime
+          }
+        }
+      }
+    `;
 
-        const AddItems = `
-            mutation AddItems {
-                addItem(
-                    username: "sam", 
-                    password: "sam",
-                    calendarItem: {
-                        title: "test",
-                        startTime: "test",
-                        endTime: "test"
-                    },
-                    scheduleItem: {
-                        title: "test",
-                        category: 0,
-                        startTime: 0,
-                        endTime: 0
-                    }
-                    task: {
-                        title: "test",
-                        priority: 0,
-                        estimatedTime: 0
-                    }
-                )
-            }
-        `;
+    const GetUserSchedule = `
+      query GetUserData {
+        getUserData(
+          username: "jackson", 
+          password: "jackson",
+          startTime: "2019-11-04T00:00",
+          endTime: "2019-11-10T00:00",
+        ) {
+          username,
+          calendarItems {
+            calendarItemID,
+            title,
+            startTime,
+            endTime
+          },
+          scheduleItems {
+            scheduleItemID,
+            title,
+            category,
+            startTime,
+            endTime
+          },
+          tasks {
+            taskID,
+            title,
+            priority,
+            estimatedTime,
+            startTime
+          }
+        }
+      }
+    `;
 
-        const UpdateItems = `
-            mutation UpdateItems {
-                updateItem(
-                    username: "sam",
-                    password: "sam",
-                    calendarItem: {
-                        calendarItemID: "5d5d15576eb4a70ed8482e67",
-                        title: "test2",
-                        startTime: "test2",
-                        endTime: "test2"
-                    },
-                    scheduleItem: {
-                        scheduleItemID: "5d5d15576eb4a70ed8482e68",
-                        title: "test2",
-                        category: 1,
-                        startTime: 1,
-                        endTime: 1
-                    },
-                    task: {
-                        taskID: "5d5d15576eb4a70ed8482e69",
-                        title: "test2",
-                        priority: 1,
-                        estimatedTime: 1,
-                        startTime: "test2"
-                    }
-                )
-            }
-        `;
+    const AddItems = `
+      mutation AddItems {
+        addItem(
+          username: "jackson", 
+          password: "jackson",
+          calendarItem: {
+            title: "test",
+            startTime: "test",
+            endTime: "test"
+          },
+          scheduleItem: {
+            title: "test",
+            category: 0,
+            startTime: 0,
+            endTime: 0
+          }
+          task: {
+            title: "test",
+            priority: 0,
+            estimatedTime: 0
+          }
+        )
+      }
+    `;
 
-        const RemoveItems = `
-            mutation RemoveItems {
-                removeItem(
-                    username: "sam",
-                    password: "sam",
-                    calendarItem: {
-                        calendarItemID: "5d5d15576eb4a70ed8482e67"
-                    },
-                    scheduleItem: {
-                        scheduleItemID: "5d5d15576eb4a70ed8482e68"
-                    },
-                    task: {
-                        taskID: "5d5d15576eb4a70ed8482e69"
-                    }
-                )
-            }
-        `;
+    const UpdateItems = `
+      mutation UpdateItems {
+        updateItem(
+          username: "jackson",
+          password: "jackson",
+          calendarItem: {
+            calendarItemID: "5d5d15576eb4a70ed8482e67",
+            title: "test2",
+            startTime: "test2",
+            endTime: "test2"
+          },
+          scheduleItem: {
+            scheduleItemID: "5d5d15576eb4a70ed8482e68",
+            title: "test2",
+            category: 1,
+            startTime: 1,
+            endTime: 1
+          },
+          task: {
+            taskID: "5d5d15576eb4a70ed8482e69",
+            title: "test2",
+            priority: 1,
+            estimatedTime: 1,
+            startTime: "test2"
+          }
+        )
+    }
+  `;
 
-        const url = "http://localhost:3000/graphql";
+    const RemoveItems = `
+      mutation RemoveItems {
+        removeItem(
+          username: "jackson",
+          password: "jackson",
+          calendarItem: {
+            calendarItemID: "5d5d15576eb4a70ed8482e67"
+          },
+          scheduleItem: {
+            scheduleItemID: "5d5d15576eb4a70ed8482e68"
+          },
+          task: {
+            taskID: "5d5d15576eb4a70ed8482e69"
+          }
+        )
+      }
+    `;
 
-        const opts = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query: GetUserData })
-        };
+    const url = "https://executewebapi.azurewebsites.net/graphql";
 
-        fetch(url, opts)
-            .then(res => res.json())
-            .then(console.log)
-            .catch(console.error);
-    </script>
+    const opts = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: GetUserSchedule })
+    };
+
+    fetch(url, opts)
+      .then(res => res.json())
+      .then(console.log)
+      .catch(console.error);
+  </script>
 </body>
+
 </html>
