@@ -13,7 +13,7 @@ This contains the regression testing for the Execute Backend project
 
 #### Test Results - Version 1.3.1
 
-1. Logging in with *User* account hase access to read and write to the database.
+1. Logging in with *User* account has access to read and write to the database.
 ![Database Login Test](images/databaseLogin.png)
 ![Database Login Result](images/databaseLoginSuccess.png)
 2. Logging in with incorrect user details should not give any access to the database.
