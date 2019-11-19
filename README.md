@@ -1,6 +1,10 @@
 # Execute Backend
 
-The backend repository for the Execute project.
+Find and view on GitHub [here](https://github.com/jacksoncurrie/execute-backend).
+
+The backend repository for the Execute project. 
+
+Testing documentation can be found in `/testing/TESTING.md`, and application documentation can be found in `/app/APPLICATION.md`.
 
 **Current Version:** 1.3.1
 
