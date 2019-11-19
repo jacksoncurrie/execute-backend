@@ -1,6 +1,8 @@
 # Execute Backend
 
-Find and view on GitHub [here](https://github.com/jacksoncurrie/execute-backend).
+View API on the web https://executewebapi.azurewebsites.net/graphql.
+
+Find and view on GitHub https://github.com/jacksoncurrie/execute-backend.
 
 The backend repository for the Execute project. 
 
